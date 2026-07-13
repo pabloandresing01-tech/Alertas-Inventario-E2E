@@ -1,0 +1,31 @@
+DEFINE
+    VAR __DS0FilterTable = TREATAS({"Linea"}, 'Clasificación SKU BMP'[Clasificación])
+    VAR __DS0FilterTable2 = TREATAS({"NO", "REVISAR"}, 'Clasificación SKU BMP'[Obsoleto])
+    VAR __DS0FilterTable3 = TREATAS({"Abierto (Pendiente Recepción)"}, 'Stock_OC'[Estado_Ultima_OC])
+
+    VAR __DS0Core = 
+        SUMMARIZECOLUMNS(
+            'Stock_OC'[Código_MP],
+            'Stock_OC'[Descripción],
+            'Stock_OC'[UM],
+            'Stock_OC'[BMP],
+            'Stock_OC'[Estado_Ultima_OC],
+            'Stock_OC'[Pend_Rec],
+            'Stock_OC'[Proveedor_Ultima_OC],
+            'Stock_OC'[Ultimo_Precio],
+            'Stock_OC'[Fecha_OC],
+            'Clasificación SKU BMP'[StockCrit],
+            'Clasificación SKU BMP'[ROP],
+            'Clasificación SKU BMP'[LeadTime],
+            'Stock_OC'[Num_Ultima_OC],
+            'Stock_OC'[BPR],
+            'Clasificación SKU BMP'[Clasificación],
+            __DS0FilterTable,
+            __DS0FilterTable2,
+            __DS0FilterTable3,
+            "Alerta_Compra", 'Clasificación SKU BMP'[Alerta_Compra],
+            "Fecha_Estimada_Recepcion", 'Clasificación SKU BMP'[Fecha Estimada Recepcion]
+        )
+
+EVALUATE
+    __DS0Core
