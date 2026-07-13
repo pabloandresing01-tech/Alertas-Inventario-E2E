@@ -55,7 +55,7 @@ La consulta base excluye proactivamente los inventarios de producción pura y bo
 
 La documentación visual y los diagramas de arquitectura se encuentran en la carpeta [`docs/`](docs/):
 
-- [`ARQUITECTURA_E2E.png`](docs/ARQUITECTURA_E2E.png) — diagrama del flujo de datos desde SAP HANA hasta Outlook.
+![`ARQUITECTURA_E2E.png`](docs/ARQUITECTURA_E2E.png) — diagrama del flujo de datos desde SAP HANA hasta Outlook.
 
 ### Visualización del Entregable (Datos Simulados)
 
